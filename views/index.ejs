@@ -7,5 +7,26 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <p>Here are some messages for you:</p>
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Message</th>
+          <th scope="col">Received On</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% messages.forEach((msg) => { %>
+          <tr>
+            <td><%= msg.user %></td>
+            <td><%= msg.text %></td>
+            <td><%= msg.added.toDateString() %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <p>Would you like to post a message?</p>
+    <a href="/new">Yes, I do.</a>
   </body>
 </html>
